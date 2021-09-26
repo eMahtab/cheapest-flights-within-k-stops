@@ -79,7 +79,7 @@ class Solution {
             }
          }
         
-        return distances[dst] == Integer.MAX_VALUE? -1 : distances[dst];
+        return -1;
     }
 }
 ```
