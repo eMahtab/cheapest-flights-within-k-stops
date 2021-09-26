@@ -7,7 +7,7 @@ You are also given three integers src, dst, and k, return the cheapest price fro
 
 !["Cheapest flights within K stops"](cheapest-flights-within-k-stops-example.jpg?raw=true "Cheapest flights within K Stops")
 
-For the above xample the cheapest flight from V0 to V2 with at most 2 stops will be (V0 -> V1 -> V4 -> V2 = 7)
+For the above example the cheapest flight from V0 to V2 with at most 2 stops will be (V0 -> V1 -> V4 -> V2 = 7)
 
 ```
 Constraints:
@@ -87,3 +87,11 @@ class Solution {
     }
 }
 ```
+
+### Code execution
+!["Code Execution"](code-execution.jpg?raw=true "Code execution")
+
+
+## References:
+1. https://leetcode.com/problems/cheapest-flights-within-k-stops/solution
+2. https://leetcode.libaoj.in/cheapest-flights-within-k-stops.html
