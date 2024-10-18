@@ -88,6 +88,50 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    
+    public int findCheapestPrice(int n, int[][] flights, int src, int dst, int K) {
+        int[][] adjMatrix = new int[n][n];
+        for (int[] flight : flights) {
+            adjMatrix[flight[0]][flight[1]] = flight[2];
+        }
+        int[] distances = new int[n];
+        int[] currentStops = new int[n];
+        Arrays.fill(distances, Integer.MAX_VALUE);
+        Arrays.fill(currentStops, Integer.MAX_VALUE);
+        distances[src] = 0;
+        currentStops[src] = 0;
+        
+        // The priority queue will contain (node, cost, stops)
+        PriorityQueue<int[]> minHeap = new PriorityQueue<>((a, b) -> a[1] - b[1]);
+        minHeap.offer(new int[] { src, 0, 0 });
+        while (!minHeap.isEmpty()) {
+            int[] info = minHeap.poll();
+            int node = info[0], cost = info[1], stops = info[2];
+            if (node == dst) {
+                return cost;
+            }
+            if (stops > K) {
+                continue;
+            }
+            for (int nei = 0; nei < n; nei++) {
+                if (adjMatrix[node][nei] > 0) {
+                    int newCost = cost + adjMatrix[node][nei];
+                    // Relaxation based on cost and stops
+                    if (newCost < distances[nei] || stops + 1 < currentStops[nei]) {
+                        minHeap.offer(new int[] { nei, newCost, stops + 1 });
+                        distances[nei] = newCost;
+                        currentStops[nei] = stops + 1;
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+}
+```
+
 ### Code execution
 !["Code Execution"](code-execution.jpg?raw=true "Code execution")
 
