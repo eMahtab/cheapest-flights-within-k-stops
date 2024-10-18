@@ -23,7 +23,7 @@ Constraints:
 9. src != dst
 ```
 
-## Implementation : O(N^2 ∗ Log(N))
+## Implementation : Dijkstra with stops addition, Runtime Complexity = O(N^2 ∗ Log(N))
 ```java
 class Solution {
     
